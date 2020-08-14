@@ -1,10 +1,16 @@
+import AsyncStorage from "@react-native-community/async-storage";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, YellowBox } from "react-native";
 
 // ios - View -> UIView
 // android - View -> android view
 export default function App() {
+  YellowBox.ignoreWarnings([
+    "Warning: Async Storage has been extracted from react-native core",
+  ]);
+  let x = 1;
+  console.log("hi");
   return (
     <View style={styles.container}>
       <Text>Hello World</Text>
