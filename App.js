@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-community/async-storage";
-import { StatusBar } from "expo-status-bar";
+// import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
   StyleSheet,
@@ -10,24 +10,33 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   Alert,
+  Dimensions,
+  StatusBar,
   Platform,
   Image,
   SafeAreaView,
   TouchableNativeFeedback,
   Button,
 } from "react-native";
+import { useDimensions } from "@react-native-community/hooks";
 
 // ios - View -> UIView
 // android - View -> android view
 export default function App() {
+  // console.log(Dimensions.get("screen"));
   YellowBox.ignoreWarnings([
     "Warning: Async Storage has been extracted from react-native core",
   ]);
   let x = 1;
   console.log("hi");
+  console.log(useDimensions());
   return (
     // can write directly here instead styles.container
     <SafeAreaView style={[styles.container, containerStyle]}>
+      <View
+        style={{ backgroundColor: "dodgerblue", width: "100%", height: "30%" }}
+      ></View>
+
       {/* <Text numberOfLines={1} onPress={() => console.log("Text clicked")}>
         Hello World
       </Text> */}
@@ -76,7 +85,7 @@ export default function App() {
         />
       </TouchableHighlight> */}
 
-      <StatusBar style="auto" />
+      {/* <StatusBar style="auto" /> */}
     </SafeAreaView>
   );
 }
@@ -88,7 +97,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    // alignItems: "center",
+    // justifyContent: "center",
   },
 });
