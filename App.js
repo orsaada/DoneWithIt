@@ -18,7 +18,10 @@ import {
   TouchableNativeFeedback,
   Button,
 } from "react-native";
-import { useDimensions } from "@react-native-community/hooks";
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
 
 // ios - View -> UIView
 // android - View -> android view
@@ -29,13 +32,26 @@ export default function App() {
   ]);
   let x = 1;
   console.log("hi");
+  console.log(useDeviceOrientation());
   console.log(useDimensions());
+
+  const { landscape } = useDeviceOrientation();
+
   return (
     // can write directly here instead styles.container
     <SafeAreaView style={[styles.container, containerStyle]}>
       <View
-        style={{ backgroundColor: "dodgerblue", width: "100%", height: "30%" }}
-      ></View>
+        style={{
+          backgroundColor: "#fff",
+          flex: 0.5,
+          width: "100%",
+          height: landscape ? "100%" : "30%",
+        }}
+      >
+        <View style={{ backgroundColor: "dodgerblue", flex: 1 }} />
+        <View style={{ backgroundColor: "gold", flex: 1 }} />
+        <View style={{ backgroundColor: "tomato", flex: 1 }} />
+      </View>
 
       {/* <Text numberOfLines={1} onPress={() => console.log("Text clicked")}>
         Hello World
