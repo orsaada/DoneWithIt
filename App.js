@@ -44,26 +44,44 @@ export default function App() {
         <View
           style={{
             backgroundColor: "#fff",
-            height: "30%",
-            // flex: 1,
+            // height: "30%",
+            flex: 1,
             // width: "100%",
             // height: landscape ? "100%" : "30%",
             flexDirection: "row", // horizontal
             justifyContent: "space-around", // main
             alignItems: "center",
+            alignContent: "center",
+            //  flexWrap: "wrap",
           }}
         >
           <View
             style={{
               backgroundColor: "dodgerblue",
-              width: 100,
+              // width: 100,
               height: 100,
-              alignSelf: "flex-start",
+              flexBasis: 100,
+              flexGrow: 1,
+              // alignSelf: "flex-start",
             }}
           />
-          <View style={{ backgroundColor: "gold", width: 100, height: 200 }} />
+          <View
+            style={{
+              backgroundColor: "gold",
+              width: 100,
+              height: 200,
+              top: 20,
+              bottom: 20,
+              right: 20,
+              position: "relative",
+            }}
+          />
           <View
             style={{ backgroundColor: "tomato", width: 100, height: 300 }}
+          />
+          <View style={{ backgroundColor: "grey", width: 100, height: 300 }} />
+          <View
+            style={{ backgroundColor: "greenyellow", width: 100, height: 300 }}
           />
         </View>
       }
