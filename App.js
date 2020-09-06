@@ -40,18 +40,33 @@ export default function App() {
   return (
     // can write directly here instead styles.container
     <SafeAreaView style={[styles.container, containerStyle]}>
-      <View
-        style={{
-          backgroundColor: "#fff",
-          flex: 0.5,
-          width: "100%",
-          height: landscape ? "100%" : "30%",
-        }}
-      >
-        <View style={{ backgroundColor: "dodgerblue", flex: 1 }} />
-        <View style={{ backgroundColor: "gold", flex: 1 }} />
-        <View style={{ backgroundColor: "tomato", flex: 1 }} />
-      </View>
+      {
+        <View
+          style={{
+            backgroundColor: "#fff",
+            height: "30%",
+            // flex: 1,
+            // width: "100%",
+            // height: landscape ? "100%" : "30%",
+            flexDirection: "row", // horizontal
+            justifyContent: "space-around", // main
+            alignItems: "center",
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: "dodgerblue",
+              width: 100,
+              height: 100,
+              alignSelf: "flex-start",
+            }}
+          />
+          <View style={{ backgroundColor: "gold", width: 100, height: 200 }} />
+          <View
+            style={{ backgroundColor: "tomato", width: 100, height: 300 }}
+          />
+        </View>
+      }
 
       {/* <Text numberOfLines={1} onPress={() => console.log("Text clicked")}>
         Hello World
