@@ -17,6 +17,7 @@ import {
   SafeAreaView,
   TouchableNativeFeedback,
   Button,
+  ImageBackground,
 } from "react-native";
 import {
   useDimensions,
@@ -36,26 +37,36 @@ export default function App() {
   console.log(useDimensions());
 
   const { landscape } = useDeviceOrientation();
+  // const image = {} ;
 
   return (
     // can write directly here instead styles.container
     <SafeAreaView style={[styles.container, containerStyle]}>
       {
-        <View
+        // <View
+        //   style={{
+        //     backgroundColor: "#fff",
+        //     // height: "30%",
+        //     flex: 1,
+        //     // width: "100%",
+        //     // height: landscape ? "100%" : "30%",
+        //     flexDirection: "row", // horizontal
+        //     justifyContent: "space-around", // main
+        //     alignItems: "center",
+        //     alignContent: "center",
+        //     //  flexWrap: "wrap",
+        //   }}
+        // >
+        <ImageBackground
+          source={require("./app/assets/background.jpg")}
           style={{
-            backgroundColor: "#fff",
-            // height: "30%",
             flex: 1,
-            // width: "100%",
-            // height: landscape ? "100%" : "30%",
-            flexDirection: "row", // horizontal
-            justifyContent: "space-around", // main
-            alignItems: "center",
-            alignContent: "center",
-            //  flexWrap: "wrap",
+            resizeMode: "cover", // or 'stretch'
           }}
         >
-          <View
+          <Image source={require("./app/assets/ituran.png")} />
+        </ImageBackground>
+        /* <View
             style={{
               backgroundColor: "dodgerblue",
               // width: 100,
@@ -64,26 +75,8 @@ export default function App() {
               flexGrow: 1,
               // alignSelf: "flex-start",
             }}
-          />
-          <View
-            style={{
-              backgroundColor: "gold",
-              width: 100,
-              height: 200,
-              top: 20,
-              bottom: 20,
-              right: 20,
-              position: "relative",
-            }}
-          />
-          <View
-            style={{ backgroundColor: "tomato", width: 100, height: 300 }}
-          />
-          <View style={{ backgroundColor: "grey", width: 100, height: 300 }} />
-          <View
-            style={{ backgroundColor: "greenyellow", width: 100, height: 300 }}
-          />
-        </View>
+          /> */
+        // </View>
       }
 
       {/* <Text numberOfLines={1} onPress={() => console.log("Text clicked")}>
@@ -91,7 +84,17 @@ export default function App() {
       </Text> */}
 
       <Button
-        title="Click me"
+        title="REGISTER"
+        color="#fc5c65"
+        onPress={() =>
+          Alert.prompt("mysss title", "sssy message", (text) =>
+            console.log(text)
+          )
+        }
+      />
+      <Button
+        title="LOG IN"
+        color="#4ECDC4"
         onPress={() =>
           Alert.prompt("mysss title", "sssy message", (text) =>
             console.log(text)
